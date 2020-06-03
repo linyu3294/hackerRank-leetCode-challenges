@@ -1,15 +1,18 @@
+
+Prompt :
+
 Given a non-empty array of integers, return the k most frequent elements.
 
-Example 1:
+  Example 1:
 
-Input: nums = [1,1,1,2,2,3], k = 2
-Output: [1,2]
+  Input: nums = [1,1,1,2,2,3], k = 2
+  Output: [1,2]
 
-Example 2:
+  Example 2:
 
-Input: nums = [1], k = 1
-Output: [1]
-Note:
+  Input: nums = [1], k = 1
+  Output: [1]
+  Note:
 
 You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
 Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
@@ -20,9 +23,9 @@ You can return the answer in any order.
 ===========================================================================================================
 
 
-Submission Details
+Submission Details :
 
 Success
 Details 
-Runtime: 11 ms, faster than 52.78% of Java online submissions for Top K Frequent Elements.
-Memory Usage: 41.8 MB, less than 14.65% of Java online submissions for Top K Frequent Elements.
+  Runtime: 11 ms, faster than 52.78% of Java online submissions for Top K Frequent Elements.
+  Memory Usage: 41.8 MB, less than 14.65% of Java online submissions for Top K Frequent Elements.
