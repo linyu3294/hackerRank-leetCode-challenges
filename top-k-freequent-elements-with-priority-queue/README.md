@@ -15,8 +15,11 @@ Given a non-empty array of integers, return the k most frequent elements.
   Note:
 
 You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
+
 Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+
 It's guaranteed that the answer is unique, in other words the set of the top k frequent elements is unique.
+
 You can return the answer in any order.
 
 
@@ -27,5 +30,7 @@ Submission Details :
 
 Success
 Details 
+
   Runtime: 11 ms, faster than 52.78% of Java online submissions for Top K Frequent Elements.
+  
   Memory Usage: 41.8 MB, less than 14.65% of Java online submissions for Top K Frequent Elements.
