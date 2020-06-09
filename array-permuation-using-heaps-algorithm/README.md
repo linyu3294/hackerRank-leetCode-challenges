@@ -22,5 +22,11 @@
     Submission Feedback :
     
     Runtime: 1 ms, faster than 90.99% of Java online submissions for Permutations.
+<<<<<<< HEAD
 
     Memory Usage: 39.1 MB, less than 99.80% of Java online submissions for Permutations.
+=======
+    
+    Memory Usage: 39.5 MB, less than 81.44% of Java online submissions for Permutations.
+    
+>>>>>>> 99364bfb87434996577ab6a3a402bcb6a50518ab
