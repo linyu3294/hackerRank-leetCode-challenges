@@ -14,4 +14,5 @@
     
     Submission Feedback:
     
-  
+      Runtime: 8 ms, faster than 11.60% of Java online submissions for Generate Parentheses.
+      Memory Usage: 39.9 MB, less than 17.16% of Java online submissions for Generate Parentheses.
