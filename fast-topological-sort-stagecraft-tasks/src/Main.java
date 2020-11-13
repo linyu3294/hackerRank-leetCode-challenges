@@ -3,7 +3,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Main {
-  private static int i = 1;
+  private static int i = 0;
 
   public static void main(String[] args) {
     // write your code here
@@ -14,8 +14,8 @@ public class Main {
     //      input.add(scanner.nextLine());
     //    }
     //    scanner.close();
-    input.addAll(Arrays.asList("4", "2 4", "-1", "-1", "3", "10 11 8 5"));
-
+//    input.addAll(Arrays.asList("4", "2 4", "-1", "-1", "3", "10 11 8 5"));
+    input.addAll(Arrays.asList("7", "2 3 4", "4 5", "6", "3 6", "4", "-1", "4 5 6", "10 15 20 31 5 14 2"));
     // Testcase 1 expected results
     //    10
     //    21
@@ -54,6 +54,9 @@ public class Main {
     fastTopologicalSort(totalTasks, edges);
   }
 
+
+
+
   private static void fastTopologicalSort(Integer totalTasks, List<Integer[]> edges) {
     Queue<Integer> queue = new LinkedList<>();
     Integer inNeighbourCount[] = new Integer[totalTasks];
@@ -69,43 +72,47 @@ public class Main {
       }
     }
     for (int j = 0; j < inNeighbourCount.length; j++) {
-      if (inNeighbourCount[j] == 0) queue.add(inNeighbourCount[j]);
+      if (inNeighbourCount[j] == 0) queue.add(j+1);
     }
 
     System.out.println("\nIn-Degree of each task:");
     Arrays.asList(inNeighbourCount).forEach(System.out::println);
     System.out.print("\nCurrent queue : ");
     queue.forEach(x -> System.out.print(x + " "));
-    System.out.println("\n\nStarting fastTopologicalSort () --------------\n");
-    System.out.println("\nCurrent taskID : " + i);
+    System.out.println("\n\nStarting fast TopologicalSort () --------------\n");
 
 
     while (!queue.isEmpty()) {
+      i++;
       int taskID = queue.poll();
+      System.out.println("\nCurrent taskID : " + taskID + " in " + i + " place" );
       System.out.println("\n\nRecursive deleteTask()");
       deleteTask(queue, edges, taskID, inNeighbourCount);
+
     }
-    System.out.println("\n\nEnding fastTopologicalSort () --------------");
+    System.out.println("\n\nEnding fast TopologicalSort () --------------");
   }
 
+
+
   private static void deleteTask(
-      Queue<Integer> queue, List<Integer[]> edges, int taskID, Integer[] inNeighbourCount) {
+      Queue<Integer> queue, List<Integer[]> edges, int taskID, Integer[] inNeighbours) {
     i++;
-    System.out.println("\nCurrent taskID : " + i);
-    if (edges[taskID] == 0) {return;}
+    System.out.println("\nCurrent taskID : " + (taskID +1) + " in " + i + " place" );
 
     for (int j = 0; j < edges.get(taskID).length; j++) {
+
       Integer[] outNeigbours = edges.get(taskID);
-      //      if (outNeigbours[0] == -1)
-      //        continue;
-      //      }
-      for (int k = 0; k < outNeigbours.length; j++) {
-        inNeighbourCount[outNeigbours[k]]--;
+      if (outNeigbours[0] == -1){
+        break;
       }
-      for (int k = 0; k < outNeigbours.length; j++) {
-        if ( inNeighbourCount[outNeigbours[k]] > 0) {
-          taskID = inNeighbourCount[outNeigbours[k]];
-          deleteTask(queue, edges, taskID, inNeighbourCount);
+      for (int k = 0; k < outNeigbours.length; k++) {
+        inNeighbours[outNeigbours[k]-1]--;
+      }
+      for (int k = 0; k < outNeigbours.length; k++) {
+        if (inNeighbours[outNeigbours[k]-1] == 0) {
+          taskID = outNeigbours[k]-1;
+          deleteTask(queue, edges, taskID, inNeighbours);
         }
       }
     }
