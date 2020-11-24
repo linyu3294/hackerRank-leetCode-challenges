@@ -1,0 +1,22 @@
+Function findMST(G, n):
+n // start node
+m = n-1 // # edges in MST
+MSTree [0] = n // size m
+PQ = new Priority Queue
+
+Visited []  = {false, … false} for all nodes
+
+While ( Visited []  != {true, … true} for all nodes  &&   PQ != Empty)
+	PQ.enqueue (n’s out_edges)
+	e = PQ.dequeue( )       ... dequeues n’s shortest out_edge
+	If Visited [e.toNode] == false
+        MSTree.add(e)
+        n = e.toNode  		... reset n to the node that e points to
+        Visited [n] = true
+
+Local H = 0;
+For each edge in MSTree: // Find the max edge weight which will be our H
+	If e.weight > H:
+		H = e.weight
+
+Return H

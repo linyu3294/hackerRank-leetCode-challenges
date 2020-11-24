@@ -1,0 +1,22 @@
+Function isExplorable(G, s, destination)
+distance [ ] = infinity for all nodes( size of n nodes)
+ 	s  = start node
+	distance [s] = 0
+    Queue unexplored = new Queue
+    Enqueue s
+
+	While (unexplored != empty) :
+        Explore the closest unexplored node u
+		Enqueue all unexplored out_neighbours of [u]
+	    Dequeue unexplored [u]
+        For each out_neigbour v of u {
+	        If (d(u) +  w (u , v) <= H) {
+            //Then update new min as v’s distance
+            distance [v] = d(u) +  w (u , v)
+            }
+		    Mark u as explored
+		}
+
+	Finally If distance [destination] != infinity,
+                then we have found a path, Return True
+          Else, Return False

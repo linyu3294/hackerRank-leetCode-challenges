@@ -1,0 +1,45 @@
+Assumptions:
+1) That the input Graph G has no cycles
+2) Graph G is a Directed Acyclic Graph
+
+DeleteTask(v, TopOrder):
+    // base case - terminates recursion and returns TopOrder
+    if (i == totals number of tasks) return TopOrder
+    else {  // decrease and delete out neighbours
+    TopOrder[i] = v
+    i = i+1
+    For every w in OUT-NEIGH[v]:
+        Decrease w’s mark by 1
+    For every w in OUT-NEIGH[v]:
+        If w’s mark is 0:
+            DeleteTask(w, TopOrder)
+    }
+
+FastTopOrder(G):
+    Mark all nodes with their # of in-edges
+    Let i = 0 // i is a global variable
+    Put all nodes w/ mark 0 in queue Q
+    TopOrder []
+    while Q is not empty:
+        u <- Q.dequeue()
+        topOrder = DeleteTask(u)
+    return TopOrder
+
+// Duration is an array that stores duration of each individual task
+CalcTaskCompletion (TopOrder, Duration):
+    CompletionTime []
+    for each task i in TopOrder:
+        if task i's inDegree  == 0
+            CompletionTime for task i = Duration of task i
+        else if i's inDegree > 0
+            CompletionTime for task i =
+                Duration of task i + Max (CompletionTime of all it's In Neighbours)
+     return CompletionTime[]
+
+
+
+
+
+
+
+
