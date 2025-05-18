@@ -21,7 +21,6 @@ function merge(nums1, m, nums2, n) {
             continue;
         }
         if (j - k === m) {
-            console.log("j: ".concat(j, " | k: ").concat(k, " | nums2[k+1]: ").concat(nums2[k]));
             nums1.splice(j, 0, nums2[k]);
             j++;
             k++;
